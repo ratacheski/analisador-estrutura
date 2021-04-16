@@ -1,0 +1,17 @@
+<svg width="800" height="600" xmlns="http://www.w3.org/2000/svg">
+
+ <g>
+  <title>Layer 1</title>
+  <path transform="rotate(90 86.28749084472652,299.2056274414063) " id="svg_8" d="m55.2875,319.20564l31,-40.00002l31,40.00002l-62,0z" opacity="undefined" stroke-dasharray="null" stroke-width="null" stroke="#fff" fill="#CE7975"/>
+  <rect stroke="#fff" id="svg_1" height="56" width="547.00002" y="270.5" x="104.49998" opacity="undefined" fill="#7AD6CA"/>
+  <line stroke-linecap="null" stroke-linejoin="null" id="svg_5" y2="250.5" x2="-194.5" y1="250.5" x1="-193.5" opacity="undefined" fill-opacity="null" stroke-opacity="null" stroke-dasharray="null" stroke-width="null" stroke="#000" fill="none"/>
+  <rect id="svg_7" height="1" width="0" y="254.5" x="87.5" opacity="undefined" fill-opacity="0" stroke-opacity="null" stroke-dasharray="null" stroke-width="null" stroke="#000" fill="#000000"/>
+  <line stroke-linecap="null" stroke-linejoin="null" id="svg_9" y2="256.5" x2="340.5" y1="151.5" x1="340.5" opacity="undefined" stroke-opacity="null" stroke-dasharray="null" stroke-width="null" stroke="#fff" fill="none"/>
+  <line stroke-linecap="null" stroke-linejoin="null" id="svg_10" y2="235.5" x2="355.5" y1="89.5" x1="362.5" opacity="undefined" stroke-opacity="null" stroke-dasharray="null" stroke-width="null" stroke="#fff" fill="none"/>
+  <line stroke-linecap="null" stroke-linejoin="null" id="svg_11" y2="219.5" x2="448.5" y1="86.5" x1="400.5" opacity="undefined" stroke-opacity="null" stroke-dasharray="null" stroke-width="null" stroke="#fff" fill="none"/>
+  <line stroke="#FFF5FF" stroke-linecap="null" stroke-linejoin="null" id="svg_13" y2="270.91892" x2="455.5" y1="66.91892" x1="455.5" opacity="undefined" stroke-dasharray="null" stroke-width="3" fill="none"/>
+  <line stroke="#FFF5FF" stroke-linecap="null" stroke-linejoin="null" id="svg_14" y2="270.91892" x2="492.5" y1="66.91892" x1="492.5" opacity="undefined" stroke-dasharray="null" stroke-width="3" fill="none"/>
+  <line stroke="#FFF5FF" stroke-linecap="null" stroke-linejoin="null" id="svg_15" y2="270.4054" x2="327.5" y1="141.4054" x1="327.5" opacity="undefined" stroke-dasharray="null" stroke-width="3" fill="none"/>
+  <line stroke="#FFF5FF" stroke-linecap="null" stroke-linejoin="null" id="svg_16" y2="270.4054" x2="302.82432" y1="141.4054" x1="302.82432" opacity="undefined" stroke-dasharray="null" stroke-width="3" fill="none"/>
+ </g>
+</svg>
