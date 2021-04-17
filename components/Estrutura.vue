@@ -1,12 +1,9 @@
 <template>
   <svg
-    width="800"
-    height="600"
     class="estrutura"
     xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 800 600"
   >
-    <!-- Created with Method Draw - http://github.com/duopixel/Method-Draw/ -->
-
     <g id="Layer_1">
       <title>Layer 1</title>
       <rect
@@ -30,21 +27,6 @@
         transform="rotate(90 38.49999999999995,281.62500000000006) "
       />
       <line
-        id="svg_2"
-        fill="none"
-        stroke="#FFF093"
-        stroke-dasharray="null"
-        fill-opacity="null"
-        opacity="undefined"
-        x1="475.5"
-        y1="34.5"
-        x2="475.5"
-        y2="242.97062"
-        stroke-linejoin="null"
-        stroke-linecap="null"
-        stroke-width="2"
-      />
-      <line
         id="svg_4"
         fill="none"
         stroke="#FFF093"
@@ -54,21 +36,6 @@
         x1="543.44444"
         y1="34.5"
         x2="543.44444"
-        y2="242.97062"
-        stroke-linejoin="null"
-        stroke-linecap="null"
-        stroke-width="2"
-      />
-      <line
-        id="svg_7"
-        fill="none"
-        stroke="#FFF093"
-        stroke-dasharray="null"
-        fill-opacity="null"
-        opacity="undefined"
-        x1="287.5"
-        y1="81"
-        x2="287.5"
         y2="242.97062"
         stroke-linejoin="null"
         stroke-linecap="null"
@@ -88,34 +55,6 @@
         stroke-linecap="null"
         stroke="#FFF093"
         stroke-width="2"
-      />
-      <line
-        id="svg_6"
-        stroke-linecap="null"
-        stroke-linejoin="null"
-        y2="80.5"
-        x2="305.51351"
-        y1="80.5"
-        x1="268.5"
-        opacity="undefined"
-        stroke-dasharray="null"
-        stroke-width="2"
-        stroke="#FFF093"
-        fill="none"
-      />
-      <line
-        id="svg_9"
-        stroke-linecap="null"
-        stroke-linejoin="null"
-        y2="33.5"
-        x2="493.51351"
-        y1="33.5"
-        x1="456.5"
-        opacity="undefined"
-        stroke-dasharray="null"
-        stroke-width="2"
-        stroke="#FFF093"
-        fill="none"
       />
       <line
         id="svg_10"
@@ -142,36 +81,6 @@
         opacity="undefined"
         stroke-dasharray="null"
         stroke-width="3"
-        stroke="#FFF093"
-        fill="none"
-      />
-      <line
-        id="svg_13"
-        transform="rotate(-45 475.00677490234364,33.49999999999999) "
-        stroke-linecap="null"
-        stroke-linejoin="null"
-        y2="33.5"
-        x2="493.51351"
-        y1="33.5"
-        x1="456.5"
-        opacity="undefined"
-        stroke-dasharray="null"
-        stroke-width="2"
-        stroke="#FFF093"
-        fill="none"
-      />
-      <line
-        id="svg_14"
-        transform="rotate(-45 287.0067749023437,81.49999999999994) "
-        stroke-linecap="null"
-        stroke-linejoin="null"
-        y2="81.5"
-        x2="305.51351"
-        y1="81.5"
-        x1="268.5"
-        opacity="undefined"
-        stroke-dasharray="null"
-        stroke-width="2"
         stroke="#FFF093"
         fill="none"
       />
@@ -345,7 +254,7 @@
       />
       <path
         id="svg_29"
-        d="m167.26118,601.06632l0.74251,-0.74001l0.74251,0.74001l-0.37125,0l0,0.74357l-0.74251,0l0,-0.74357l-0.37125,0z"
+        d="m167.26118,601.06632l0.74251,-0.74001l0.74251,0.74001l-0.37125,0l0,0.74357l-0.74251,0l0,-0.74357l-0.37125,0l-0.00001,0z"
         opacity="undefined"
         stroke-opacity="null"
         stroke-dasharray="null"
@@ -458,7 +367,7 @@
         opacity="undefined"
         stroke-dasharray="null"
         stroke-width="3"
-        fill="#ff0000"
+        fill="#ff7f00"
       />
       <g id="svg_55">
         <path
@@ -582,6 +491,160 @@
           fill="none"
         />
       </g>
+      <text
+        id="svg_12"
+        fill="#ffaaaa"
+        stroke-width="0"
+        stroke-dasharray="null"
+        stroke-opacity="null"
+        opacity="undefined"
+        x="188.5"
+        y="402.5"
+        font-size="24"
+        font-family="monospace"
+        text-anchor="start"
+        xml:space="preserve"
+        font-weight="bold"
+        font-style="normal"
+        stroke="null"
+      >
+        w
+      </text>
+      <text
+        id="svg_27"
+        fill="#aaffaa"
+        stroke-width="0"
+        stroke-dasharray="null"
+        stroke-opacity="null"
+        opacity="undefined"
+        x="530.5"
+        y="459.5"
+        font-size="24"
+        font-family="monospace"
+        text-anchor="start"
+        xml:space="preserve"
+        font-weight="bold"
+        font-style="normal"
+        stroke="null"
+      >
+        2w
+      </text>
+      <text
+        id="svg_5"
+        style="cursor: move"
+        fill="#ffffff"
+        stroke-width="0"
+        stroke-dasharray="null"
+        stroke-opacity="null"
+        opacity="undefined"
+        x="173.5"
+        y="518.5"
+        font-size="24"
+        font-family="monospace"
+        text-anchor="start"
+        xml:space="preserve"
+        font-weight="bold"
+        font-style="normal"
+        stroke="null"
+      >
+        L3
+      </text>
+      <text
+        id="svg_34"
+        style="cursor: move"
+        fill="#ffffff"
+        stroke-width="0"
+        stroke-dasharray="null"
+        stroke-opacity="null"
+        opacity="undefined"
+        x="431.5"
+        y="518.5"
+        font-size="24"
+        font-family="monospace"
+        text-anchor="start"
+        xml:space="preserve"
+        font-weight="bold"
+        font-style="normal"
+        stroke="null"
+      >
+        L4
+      </text>
+      <text
+        id="svg_35"
+        fill="#FFF093"
+        stroke-width="0"
+        stroke-dasharray="null"
+        stroke-opacity="null"
+        opacity="undefined"
+        x="299.5"
+        y="170.5"
+        font-size="24"
+        font-family="monospace"
+        text-anchor="start"
+        xml:space="preserve"
+        font-weight="bold"
+        font-style="normal"
+        stroke="null"
+      >
+        L1
+      </text>
+      <text
+        id="svg_37"
+        fill="#FFF093"
+        stroke-width="0"
+        stroke-dasharray="null"
+        stroke-opacity="null"
+        opacity="undefined"
+        x="503.5"
+        y="170.5"
+        font-size="24"
+        font-family="monospace"
+        text-anchor="start"
+        xml:space="preserve"
+        font-weight="bold"
+        font-style="normal"
+        stroke="null"
+      >
+        L2
+      </text>
+      <text
+        id="svg_43"
+        fill="#ffffff"
+        stroke-width="0"
+        stroke-dasharray="null"
+        stroke-opacity="null"
+        opacity="undefined"
+        x="630.5"
+        y="518.5"
+        font-size="24"
+        font-family="monospace"
+        text-anchor="start"
+        xml:space="preserve"
+        font-weight="bold"
+        font-style="normal"
+        stroke="null"
+      >
+        L5
+      </text>
+      <text
+        id="svg_51"
+        fill="#ff7f00"
+        stroke-width="0"
+        stroke-dasharray="null"
+        stroke-opacity="null"
+        opacity="undefined"
+        x="558.5"
+        y="192.5"
+        font-size="24"
+        font-family="monospace"
+        text-anchor="start"
+        xml:space="preserve"
+        font-weight="bold"
+        font-style="normal"
+        stroke="null"
+      >
+        P
+      </text>
     </g>
   </svg>
 </template>

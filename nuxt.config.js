@@ -9,10 +9,9 @@ export default {
 
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    titleTemplate: '%s - analisador-estrutura',
-    title: 'analisador-estrutura',
+    title: 'Analisador Estrutural',
     htmlAttrs: {
-      lang: 'en',
+      lang: 'pt-BR',
     },
     meta: [
       { charset: 'utf-8' },
