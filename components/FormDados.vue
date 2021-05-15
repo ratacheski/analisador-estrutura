@@ -5,11 +5,11 @@
       <v-stepper v-model="stepper">
         <v-stepper-header>
           <v-divider></v-divider>
-          <v-stepper-step :complete="e1 > 1" step="1">
+          <v-stepper-step :complete="stepper > 1" step="1">
             Propriedades dos Arames
           </v-stepper-step>
           <v-divider></v-divider>
-          <v-stepper-step :complete="e1 > 2" step="2">
+          <v-stepper-step :complete="stepper > 2" step="2">
             Carregamentos e Dimensões da Estrutura
           </v-stepper-step>
           <v-divider></v-divider>
@@ -224,29 +224,6 @@ export default {
       },
     }
   },
-  computed: {
-    areaArame1() {
-      return this.reacaoVB / this.arame1.sigma
-    },
-    areaArame2() {
-      return this.reacaoVD / this.arame2.sigma
-    },
-    fR1() {
-      return this.w * this.l3
-    },
-    fR2() {
-      return 2 * this.w * (this.l4 + this.l5)
-    },
-    reacaoVA() {
-      return 0
-    },
-    reacaoVB() {
-      return 0
-    },
-    reacaoVD() {
-      return 0
-    },
-  },
   methods: {
     validaForm1() {
       if (this.$refs.form1.validate()) {
@@ -261,7 +238,7 @@ export default {
     },
     calcular() {
       if (this.$refs.form2.validate()) {
-        this.calcularDeformacoesArames()
+        this.emitirCalcular()
       } else {
         this.$notifier.showError({
           content:
@@ -286,13 +263,21 @@ export default {
       }
       return this.arame1.sigma <= sigmaAco && this.arame2.sigma <= sigmaAco
     },
-    calcularDeformacoesArames() {
-      this.$emit('calculating')
-      this.$notifier.showSuccess({
-        content: `R1= ${this.fR1}; R2= ${this.fR2}`,
+    emitirCalcular() {
+      this.$emit('calcular', {
+        dimensoes: {
+          l3: this.l3,
+          l4: this.l4,
+          l5: this.l5,
+        },
+        carregamentos: {
+          p: this.p,
+          w: this.w,
+        },
+        arame1: this.arame1,
+        arame2: this.arame2,
       })
     },
-    calcularReacoesDeApoio() {},
   },
 }
 </script>
