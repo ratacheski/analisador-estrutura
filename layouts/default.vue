@@ -1,5 +1,6 @@
 <template>
   <v-app dark>
+    <Snackbar></Snackbar>
     <v-navigation-drawer v-model="drawer" :mini-variant="miniVariant" app>
       <v-list>
         <v-list-item
