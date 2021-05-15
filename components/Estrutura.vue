@@ -1,656 +1,444 @@
 <template>
   <svg
-    class="estrutura"
+    :class="estruturaClass"
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 800 600"
   >
     <g id="Layer_1">
-      <title>Layer 1</title>
       <rect
-        id="svg_1"
-        stroke="null"
+        id="barra"
         height="78"
         width="686.1902"
         y="242.5"
         x="60.5"
-        opacity="undefined"
-        stroke-width="0"
         fill="#A4FFFF"
       />
-      <path
-        id="svg_3"
-        d="m-1,302.625l39.5,-42l39.5,42l-79,0z"
-        opacity="undefined"
-        stroke-dasharray="null"
-        stroke-width="0"
-        fill="#FFE2FF"
-        transform="rotate(90 38.49999999999995,281.62500000000006) "
-      />
-      <line
-        id="svg_4"
-        fill="none"
-        stroke="#FFF093"
-        stroke-dasharray="null"
-        fill-opacity="null"
-        opacity="undefined"
-        x1="543.44444"
-        y1="34.5"
-        x2="543.44444"
-        y2="242.97062"
-        stroke-linejoin="null"
-        stroke-linecap="null"
-        stroke-width="2"
-      />
-      <line
-        id="svg_8"
-        fill="none"
-        stroke-dasharray="null"
-        fill-opacity="null"
-        opacity="undefined"
-        x1="338.5"
-        y1="80.5"
-        x2="338.5"
-        y2="242.97062"
-        stroke-linejoin="null"
-        stroke-linecap="null"
-        stroke="#FFF093"
-        stroke-width="2"
-      />
-      <line
-        id="svg_10"
-        stroke-linecap="null"
-        stroke-linejoin="null"
-        y2="33.5"
-        x2="562.45795"
-        y1="33.5"
-        x1="525.44444"
-        opacity="undefined"
-        stroke-dasharray="null"
-        stroke-width="3"
-        stroke="#FFF093"
-        fill="none"
-      />
-      <line
-        id="svg_11"
-        stroke-linecap="null"
-        stroke-linejoin="null"
-        y2="80.5"
-        x2="357.51351"
-        y1="80.5"
-        x1="320.5"
-        opacity="undefined"
-        stroke-dasharray="null"
-        stroke-width="3"
-        stroke="#FFF093"
-        fill="none"
-      />
-      <line
-        id="svg_15"
-        stroke="#FFF093"
-        transform="rotate(-45 326.3817749023437,75.24998474121094) "
-        stroke-linecap="null"
-        stroke-linejoin="null"
-        y2="75.24998"
-        x2="333.39808"
-        y1="75.24998"
-        x1="319.36549"
-        opacity="undefined"
-        stroke-dasharray="null"
-        fill="none"
-      />
-      <line
-        id="svg_16"
-        stroke="#FFF093"
-        transform="rotate(-45 332.6317749023437,75.24998474121094) "
-        stroke-linecap="null"
-        stroke-linejoin="null"
-        y2="75.24998"
-        x2="339.64807"
-        y1="75.24998"
-        x1="325.61547"
-        opacity="undefined"
-        stroke-dasharray="null"
-        fill="none"
-      />
-      <line
-        id="svg_17"
-        stroke="#FFF093"
-        transform="rotate(-45 338.8817443847657,75.24998474121095) "
-        stroke-linecap="null"
-        stroke-linejoin="null"
-        y2="75.24998"
-        x2="345.89806"
-        y1="75.24998"
-        x1="331.86546"
-        opacity="undefined"
-        stroke-dasharray="null"
-        fill="none"
-      />
-      <line
-        id="svg_18"
-        stroke="#FFF093"
-        transform="rotate(-45 345.13174438476557,75.24998474121092) "
-        stroke-linecap="null"
-        stroke-linejoin="null"
-        y2="75.24998"
-        x2="352.14804"
-        y1="75.24998"
-        x1="338.11545"
-        opacity="undefined"
-        stroke-dasharray="null"
-        fill="none"
-      />
-      <line
-        id="svg_19"
-        stroke="#FFF093"
-        transform="rotate(-45 351.38174438476557,75.24998474121094) "
-        stroke-linecap="null"
-        stroke-linejoin="null"
-        y2="75.24998"
-        x2="358.39803"
-        y1="75.24998"
-        x1="344.36543"
-        opacity="undefined"
-        stroke-dasharray="null"
-        fill="none"
-      />
-      <line
-        id="svg_20"
-        stroke="#FFF093"
-        transform="rotate(-45 357.6317138671875,75.24998474121092) "
-        stroke-linecap="null"
-        stroke-linejoin="null"
-        y2="75.24998"
-        x2="364.64802"
-        y1="75.24998"
-        x1="350.61542"
-        opacity="undefined"
-        stroke-dasharray="null"
-        fill="none"
-      />
-      <line
-        id="svg_21"
-        stroke="#FFF093"
-        transform="rotate(-45 531.844970703125,27.842575073242134) "
-        stroke-linecap="null"
-        stroke-linejoin="null"
-        y2="27.84258"
-        x2="538.86104"
-        y1="27.84258"
-        x1="524.82845"
-        opacity="undefined"
-        stroke-dasharray="null"
-        fill="none"
-      />
-      <line
-        id="svg_22"
-        stroke="#FFF093"
-        transform="rotate(-45 538.094970703125,27.84257507324216) "
-        stroke-linecap="null"
-        stroke-linejoin="null"
-        y2="27.84258"
-        x2="545.11103"
-        y1="27.84258"
-        x1="531.07843"
-        opacity="undefined"
-        stroke-dasharray="null"
-        fill="none"
-      />
-      <line
-        id="svg_23"
-        stroke="#FFF093"
-        transform="rotate(-45 544.3449707031251,27.842575073242184) "
-        stroke-linecap="null"
-        stroke-linejoin="null"
-        y2="27.84258"
-        x2="551.36101"
-        y1="27.84258"
-        x1="537.32842"
-        opacity="undefined"
-        stroke-dasharray="null"
-        fill="none"
-      />
-      <line
-        id="svg_24"
-        stroke="#FFF093"
-        transform="rotate(-45 550.5949707031251,27.842575073242184) "
-        stroke-linecap="null"
-        stroke-linejoin="null"
-        y2="27.84258"
-        x2="557.611"
-        y1="27.84258"
-        x1="543.57841"
-        opacity="undefined"
-        stroke-dasharray="null"
-        fill="none"
-      />
-      <line
-        id="svg_25"
-        stroke="#FFF093"
-        transform="rotate(-45 556.844970703125,27.842575073242205) "
-        stroke-linecap="null"
-        stroke-linejoin="null"
-        y2="27.84258"
-        x2="563.86099"
-        y1="27.84258"
-        x1="549.82839"
-        opacity="undefined"
-        stroke-dasharray="null"
-        fill="none"
-      />
-      <line
-        id="svg_26"
-        stroke="#FFF093"
-        transform="rotate(-45 563.0949096679688,27.842575073242205) "
-        stroke-linecap="null"
-        stroke-linejoin="null"
-        y2="27.84258"
-        x2="570.11097"
-        y1="27.84258"
-        x1="556.07838"
-        opacity="undefined"
-        stroke-dasharray="null"
-        fill="none"
-      />
-      <path
-        id="svg_29"
-        d="m167.26118,601.06632l0.74251,-0.74001l0.74251,0.74001l-0.37125,0l0,0.74357l-0.74251,0l0,-0.74357l-0.37125,0l-0.00001,0z"
-        opacity="undefined"
-        stroke-opacity="null"
-        stroke-dasharray="null"
-        stroke-width="3"
-        stroke="#FFF093"
-        fill="#ffff56"
-      />
-      <g id="svg_52">
+      <g id="apoio">
+        <path
+          id="apoioTriangulo"
+          d="m-1,302.625l39.5,-42l39.5,42l-79,0z"
+          fill="#FFE2FF"
+          transform="rotate(90 38.49999999999995,281.62500000000006) "
+        />
+        <line
+          id="apoioEngaste"
+          stroke="#FFE2FF"
+          stroke-width="6"
+          y2="333.00796"
+          x2="17.70833"
+          y1="233.68056"
+          x1="17.70833"
+        />
+      </g>
+
+      <g id="arame1" stroke="#FFF093" fill="#FFF093">
+        <line
+          id="fio1"
+          stroke-width="2"
+          x1="338.5"
+          y1="80.5"
+          x2="338.5"
+          y2="242.97062"
+        />
+        <g id="engasteArame1">
+          <line
+            id="svg_11"
+            stroke-width="3"
+            y2="80.5"
+            x2="357.51351"
+            y1="80.5"
+            x1="320.5"
+          />
+          <line
+            id="svg_15"
+            transform="rotate(-45 326.3817749023437,75.24998474121094) "
+            y2="75.24998"
+            x2="333.39808"
+            y1="75.24998"
+            x1="319.36549"
+          />
+          <line
+            id="svg_16"
+            transform="rotate(-45 332.6317749023437,75.24998474121094) "
+            y2="75.24998"
+            x2="339.64807"
+            y1="75.24998"
+            x1="325.61547"
+          />
+          <line
+            id="svg_17"
+            transform="rotate(-45 338.8817443847657,75.24998474121095) "
+            y2="75.24998"
+            x2="345.89806"
+            y1="75.24998"
+            x1="331.86546"
+          />
+          <line
+            id="svg_18"
+            transform="rotate(-45 345.13174438476557,75.24998474121092) "
+            y2="75.24998"
+            x2="352.14804"
+            y1="75.24998"
+            x1="338.11545"
+          />
+          <line
+            id="svg_19"
+            transform="rotate(-45 351.38174438476557,75.24998474121094) "
+            y2="75.24998"
+            x2="358.39803"
+            y1="75.24998"
+            x1="344.36543"
+          />
+          <line
+            id="svg_20"
+            transform="rotate(-45 357.6317138671875,75.24998474121092) "
+            y2="75.24998"
+            x2="364.64802"
+            y1="75.24998"
+            x1="350.61542"
+          />
+        </g>
+        <text
+          id="svg_35"
+          x="299.5"
+          y="170.5"
+          font-size="24"
+          stroke-width="0"
+          font-family="monospace"
+          text-anchor="start"
+          xml:space="preserve"
+          font-weight="bold"
+          font-style="normal"
+        >
+          L1
+        </text>
+      </g>
+      <g id="arame2" stroke="#FFF093" fill="#FFF093">
+        <line
+          id="fio2"
+          stroke-width="2"
+          x1="543.44444"
+          y1="34.5"
+          x2="543.44444"
+          y2="242.97062"
+        />
+        <g id="engasteArame2">
+          <line
+            id="svg_10"
+            stroke-width="3"
+            y2="33.5"
+            x2="562.45795"
+            y1="33.5"
+            x1="525.44444"
+          />
+          <line
+            id="svg_21"
+            transform="rotate(-45 531.844970703125,27.842575073242134) "
+            y2="27.84258"
+            x2="538.86104"
+            y1="27.84258"
+            x1="524.82845"
+          />
+          <line
+            id="svg_22"
+            transform="rotate(-45 538.094970703125,27.84257507324216) "
+            y2="27.84258"
+            x2="545.11103"
+            y1="27.84258"
+            x1="531.07843"
+          />
+          <line
+            id="svg_23"
+            transform="rotate(-45 544.3449707031251,27.842575073242184) "
+            y2="27.84258"
+            x2="551.36101"
+            y1="27.84258"
+            x1="537.32842"
+          />
+          <line
+            id="svg_24"
+            transform="rotate(-45 550.5949707031251,27.842575073242184) "
+            y2="27.84258"
+            x2="557.611"
+            y1="27.84258"
+            x1="543.57841"
+          />
+          <line
+            id="svg_25"
+            transform="rotate(-45 556.844970703125,27.842575073242205) "
+            y2="27.84258"
+            x2="563.86099"
+            y1="27.84258"
+            x1="549.82839"
+          />
+          <line
+            id="svg_26"
+            transform="rotate(-45 563.0949096679688,27.842575073242205) "
+            y2="27.84258"
+            x2="570.11097"
+            y1="27.84258"
+            x1="556.07838"
+          />
+        </g>
+        <text
+          id="svg_37"
+          stroke-width="0"
+          x="503.5"
+          y="170.5"
+          font-size="24"
+          font-family="monospace"
+          text-anchor="start"
+          xml:space="preserve"
+          font-weight="bold"
+          font-style="normal"
+        >
+          L2
+        </text>
+      </g>
+
+      <g id="eixoX" stroke="#ffffff" fill="#ffffff">
         <line
           id="svg_45"
-          stroke-linecap="null"
-          stroke-linejoin="null"
+          stroke-width="4"
           y2="492.01389"
           x2="747.02981"
           y1="492.01389"
           x1="60.06944"
-          opacity="undefined"
-          fill-opacity="null"
-          stroke-opacity="null"
-          stroke-dasharray="null"
-          stroke-width="4"
-          stroke="#ffffff"
-          fill="none"
         />
         <line
           id="svg_46"
-          stroke="#ffffff"
-          stroke-linecap="null"
-          stroke-linejoin="null"
+          stroke-width="4"
           y2="506.73701"
           x2="342.01389"
           y1="476.04167"
           x1="342.01389"
-          opacity="undefined"
-          fill-opacity="null"
-          stroke-opacity="null"
-          stroke-dasharray="null"
-          stroke-width="4"
-          fill="none"
         />
         <line
           id="svg_47"
-          stroke="#ffffff"
-          stroke-linecap="null"
-          stroke-linejoin="null"
+          stroke-width="4"
           y2="506.73701"
           x2="61.45832"
           y1="476.04167"
           x1="61.45832"
-          opacity="undefined"
-          fill-opacity="null"
-          stroke-opacity="null"
-          stroke-dasharray="null"
-          stroke-width="4"
-          fill="none"
         />
         <line
           id="svg_48"
-          stroke="#ffffff"
-          stroke-linecap="null"
-          stroke-linejoin="null"
+          stroke-width="4"
           y2="506.73701"
           x2="541.31945"
           y1="476.04167"
           x1="541.31945"
-          opacity="undefined"
-          fill-opacity="null"
-          stroke-opacity="null"
-          stroke-dasharray="null"
-          stroke-width="4"
-          fill="none"
         />
         <line
           id="svg_49"
-          stroke="#ffffff"
-          stroke-linecap="null"
-          stroke-linejoin="null"
+          stroke-width="4"
           y2="506.73701"
           x2="744.79168"
           y1="476.04167"
           x1="744.79168"
-          opacity="undefined"
-          fill-opacity="null"
-          stroke-opacity="null"
-          stroke-dasharray="null"
-          stroke-width="4"
-          fill="none"
         />
+        <text
+          id="svg_5"
+          style="cursor: move"
+          x="173.5"
+          y="518.5"
+          font-size="24"
+          stroke-width="0"
+          font-family="monospace"
+          text-anchor="start"
+          xml:space="preserve"
+          font-weight="bold"
+          font-style="normal"
+        >
+          L3
+        </text>
+        <text
+          id="svg_34"
+          style="cursor: move"
+          x="431.5"
+          y="518.5"
+          font-size="24"
+          stroke-width="0"
+          font-family="monospace"
+          text-anchor="start"
+          xml:space="preserve"
+          font-weight="bold"
+          font-style="normal"
+        >
+          L4
+        </text>
+        <text
+          id="svg_43"
+          stroke-width="0"
+          x="630.5"
+          y="518.5"
+          font-size="24"
+          font-family="monospace"
+          text-anchor="start"
+          xml:space="preserve"
+          font-weight="bold"
+          font-style="normal"
+        >
+          L5
+        </text>
       </g>
-      <line
-        id="svg_53"
-        stroke-linecap="null"
-        stroke-linejoin="null"
-        y2="333.00796"
-        x2="17.70833"
-        y1="233.68056"
-        x1="17.70833"
-        opacity="undefined"
-        fill-opacity="null"
-        stroke-opacity="null"
-        stroke-dasharray="null"
-        stroke-width="6"
-        stroke="#FFE2FF"
-        fill="none"
-      />
-      <path
-        id="svg_54"
-        stroke="null"
-        d="m550.27027,215.62393l-6.1905,31.93731l-6.1905,-31.93731l3.09525,0l0,-32.09099l6.1905,0l0,32.09099l3.09525,0z"
-        opacity="undefined"
-        stroke-dasharray="null"
-        stroke-width="3"
-        fill="#ff7f00"
-      />
-      <g id="svg_55">
+
+      <g id="forcaP" fill="#ff7f00">
+        <path
+          id="forcaPSeta"
+          d="m550.27027,215.62393l-6.1905,31.93731l-6.1905,-31.93731l3.09525,0l0,-32.09099l6.1905,0l0,32.09099l3.09525,0z"
+        />
+        <text
+          id="svg_51"
+          x="558.5"
+          y="192.5"
+          font-size="24"
+          font-family="monospace"
+          text-anchor="start"
+          xml:space="preserve"
+          font-weight="bold"
+          font-style="normal"
+        >
+          P
+        </text>
+      </g>
+
+      <g id="forca2W" fill="#aaffaa">
         <path
           id="svg_28"
-          stroke="null"
           d="m348.88098,375.05477l-6.1905,55.14537l-6.1905,-55.14537l3.09525,0l0,-55.41072l6.1905,0l0,55.41072l3.09525,0z"
-          opacity="undefined"
-          stroke-dasharray="null"
-          stroke-width="3"
-          fill="#aaffaa"
         />
         <path
           id="svg_30"
-          stroke="null"
           d="m448.88117,375.05477l-6.1905,55.14537l-6.1905,-55.14537l3.09525,0l0,-55.41072l6.1905,0l0,55.41072l3.09525,0z"
-          opacity="undefined"
-          stroke-dasharray="null"
-          stroke-width="3"
-          fill="#aaffaa"
         />
         <path
           id="svg_31"
-          stroke="null"
           d="m548.88138,375.05477l-6.1905,55.14537l-6.1905,-55.14537l3.09525,0l0,-55.41072l6.1905,0l0,55.41072l3.09525,0z"
-          opacity="undefined"
-          stroke-dasharray="null"
-          stroke-width="3"
-          fill="#aaffaa"
         />
         <path
           id="svg_32"
-          stroke="null"
           d="m648.88162,375.05477l-6.1905,55.14537l-6.1905,-55.14537l3.09525,0l0,-55.41072l6.1905,0l0,55.41072l3.09525,0z"
-          opacity="undefined"
-          stroke-dasharray="null"
-          stroke-width="3"
-          fill="#aaffaa"
         />
         <path
           id="svg_33"
-          stroke="null"
           d="m748.88162,375.05477l-6.1905,55.14537l-6.1905,-55.14537l3.09525,0l0,-55.41072l6.1905,0l0,55.41072l3.09525,0z"
-          opacity="undefined"
-          stroke-dasharray="null"
-          stroke-width="3"
-          fill="#aaffaa"
         />
         <line
           id="svg_44"
           stroke="#aaffaa"
-          stroke-linecap="null"
-          stroke-linejoin="null"
+          stroke-width="4"
           y2="429.81169"
           x2="742.07535"
           y1="429.81169"
           x1="342.98629"
-          opacity="undefined"
-          stroke-dasharray="null"
-          stroke-width="4"
-          fill="none"
         />
+        <text
+          id="svg_27"
+          x="530.5"
+          y="459.5"
+          font-size="24"
+          font-family="monospace"
+          text-anchor="start"
+          xml:space="preserve"
+          font-weight="bold"
+          font-style="normal"
+        >
+          2w
+        </text>
       </g>
-      <g id="svg_50" stroke="null">
+      <g id="forcaW" fill="#ffaaaa">
         <path
           id="svg_36"
-          stroke="null"
           d="m69.83258,341.92944l-6.1905,22.17873l-6.1905,-22.17873l3.09525,0l0,-22.28546l6.1905,0l0,22.28546l3.09525,0z"
-          opacity="undefined"
-          stroke-dasharray="null"
-          stroke-width="3"
-          fill="#ffaaaa"
         />
         <path
           id="svg_38"
-          stroke="null"
           d="m146.02344,341.92944l-6.1905,22.17874l-6.1905,-22.17874l3.09525,0l0,-22.28546l6.1905,0l0,22.28546l3.09525,0z"
-          opacity="undefined"
-          stroke-dasharray="null"
-          stroke-width="3"
-          fill="#ffaaaa"
         />
         <path
           id="svg_39"
-          stroke="null"
           d="m212.69036,342.72344l-6.1905,22.17874l-6.1905,-22.17874l3.09525,0l0,-22.28546l6.1905,0l0,22.28546l3.09525,0z"
-          opacity="undefined"
-          stroke-dasharray="null"
-          stroke-width="3"
-          fill="#ffaaaa"
         />
         <path
           id="svg_40"
-          stroke="null"
           d="m348.88152,341.92944l-6.1905,22.17874l-6.1905,-22.17874l3.09525,0l0,-22.28546l6.1905,0l0,22.28546l3.09525,0z"
-          opacity="undefined"
-          stroke-dasharray="null"
-          stroke-width="3"
-          fill="#ffaaaa"
         />
         <path
           id="svg_41"
-          stroke="null"
           d="m282.21438,341.92944l-6.1905,22.17874l-6.1905,-22.17874l3.09525,0l0,-22.28546l6.1905,0l0,22.28546l3.09525,0z"
-          opacity="undefined"
-          stroke-dasharray="null"
-          stroke-width="3"
-          fill="#ffaaaa"
         />
         <line
           id="svg_42"
           stroke="#ffaaaa"
-          stroke-linecap="null"
-          stroke-linejoin="null"
+          stroke-width="4"
           y2="364.00806"
           x2="343.46425"
           y1="364.00806"
           x1="63.81958"
-          opacity="undefined"
-          stroke-dasharray="null"
-          stroke-width="4"
-          fill="none"
         />
+        <text
+          id="svg_12"
+          x="188.5"
+          y="402.5"
+          font-size="24"
+          font-family="monospace"
+          text-anchor="start"
+          xml:space="preserve"
+          font-weight="bold"
+          font-style="normal"
+        >
+          w
+        </text>
       </g>
-      <text
-        id="svg_12"
-        fill="#ffaaaa"
-        stroke-width="0"
-        stroke-dasharray="null"
-        stroke-opacity="null"
-        opacity="undefined"
-        x="188.5"
-        y="402.5"
-        font-size="24"
-        font-family="monospace"
-        text-anchor="start"
-        xml:space="preserve"
-        font-weight="bold"
-        font-style="normal"
-        stroke="null"
-      >
-        w
-      </text>
-      <text
-        id="svg_27"
-        fill="#aaffaa"
-        stroke-width="0"
-        stroke-dasharray="null"
-        stroke-opacity="null"
-        opacity="undefined"
-        x="530.5"
-        y="459.5"
-        font-size="24"
-        font-family="monospace"
-        text-anchor="start"
-        xml:space="preserve"
-        font-weight="bold"
-        font-style="normal"
-        stroke="null"
-      >
-        2w
-      </text>
-      <text
-        id="svg_5"
-        style="cursor: move"
-        fill="#ffffff"
-        stroke-width="0"
-        stroke-dasharray="null"
-        stroke-opacity="null"
-        opacity="undefined"
-        x="173.5"
-        y="518.5"
-        font-size="24"
-        font-family="monospace"
-        text-anchor="start"
-        xml:space="preserve"
-        font-weight="bold"
-        font-style="normal"
-        stroke="null"
-      >
-        L3
-      </text>
-      <text
-        id="svg_34"
-        style="cursor: move"
-        fill="#ffffff"
-        stroke-width="0"
-        stroke-dasharray="null"
-        stroke-opacity="null"
-        opacity="undefined"
-        x="431.5"
-        y="518.5"
-        font-size="24"
-        font-family="monospace"
-        text-anchor="start"
-        xml:space="preserve"
-        font-weight="bold"
-        font-style="normal"
-        stroke="null"
-      >
-        L4
-      </text>
-      <text
-        id="svg_35"
-        fill="#FFF093"
-        stroke-width="0"
-        stroke-dasharray="null"
-        stroke-opacity="null"
-        opacity="undefined"
-        x="299.5"
-        y="170.5"
-        font-size="24"
-        font-family="monospace"
-        text-anchor="start"
-        xml:space="preserve"
-        font-weight="bold"
-        font-style="normal"
-        stroke="null"
-      >
-        L1
-      </text>
-      <text
-        id="svg_37"
-        fill="#FFF093"
-        stroke-width="0"
-        stroke-dasharray="null"
-        stroke-opacity="null"
-        opacity="undefined"
-        x="503.5"
-        y="170.5"
-        font-size="24"
-        font-family="monospace"
-        text-anchor="start"
-        xml:space="preserve"
-        font-weight="bold"
-        font-style="normal"
-        stroke="null"
-      >
-        L2
-      </text>
-      <text
-        id="svg_43"
-        fill="#ffffff"
-        stroke-width="0"
-        stroke-dasharray="null"
-        stroke-opacity="null"
-        opacity="undefined"
-        x="630.5"
-        y="518.5"
-        font-size="24"
-        font-family="monospace"
-        text-anchor="start"
-        xml:space="preserve"
-        font-weight="bold"
-        font-style="normal"
-        stroke="null"
-      >
-        L5
-      </text>
-      <text
-        id="svg_51"
-        fill="#ff7f00"
-        stroke-width="0"
-        stroke-dasharray="null"
-        stroke-opacity="null"
-        opacity="undefined"
-        x="558.5"
-        y="192.5"
-        font-size="24"
-        font-family="monospace"
-        text-anchor="start"
-        xml:space="preserve"
-        font-weight="bold"
-        font-style="normal"
-        stroke="null"
-      >
-        P
-      </text>
     </g>
   </svg>
 </template>
 
-<style scoped>
+<script>
+export default {
+  props: {
+    calculating: {
+      type: Boolean,
+      default: false,
+    },
+  },
+  computed: {
+    estruturaClass() {
+      return this.calculating ? 'estrutura calculating' : 'estrutura'
+    },
+  },
+}
+</script>
+
+<style scoped></style>
+
+<style lang="scss" scoped>
 .estrutura {
   padding-top: 50px;
+  animation: estrutura 0.5s forwards;
+  transform: translateX(300px);
+  opacity: 0;
+}
+.calculating {
+  #arame1,
+  #arame2,
+  #barra {
+    animation: calculating1 1s linear alternate infinite;
+  }
+}
+
+@keyframes calculating1 {
+  to {
+    fill: red;
+    stroke: red;
+  }
+}
+
+@keyframes estrutura {
+  to {
+    transform: translateX(0px);
+    opacity: 1;
+  }
 }
 </style>

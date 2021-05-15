@@ -44,7 +44,7 @@
                       suffix="MPa"
                     ></v-text-field>
                   </v-col>
-                  <v-col cols="12" md="6">
+                  <v-col cols="12">
                     <v-text-field
                       v-model.number="arame1.comprimento"
                       type="number"
@@ -54,18 +54,6 @@
                       min="0"
                       hint="comprimento do primeiro arame"
                       suffix="metros"
-                    ></v-text-field>
-                  </v-col>
-                  <v-col cols="12" md="6">
-                    <v-text-field
-                      v-model.number="arame1.area"
-                      type="number"
-                      label="Área Seção Transversal"
-                      prefix="A1 ="
-                      :rules="rules.areaRules"
-                      min="0"
-                      hint="Área da seção transversal do arame 1"
-                      suffix="mm²"
                     ></v-text-field>
                   </v-col>
                 </v-row>
@@ -96,7 +84,7 @@
                       suffix="MPa"
                     ></v-text-field>
                   </v-col>
-                  <v-col cols="12" md="6">
+                  <v-col cols="12">
                     <v-text-field
                       v-model.number="arame2.comprimento"
                       type="number"
@@ -106,18 +94,6 @@
                       min="0"
                       hint="comprimento do segundo arame"
                       suffix="metros"
-                    ></v-text-field>
-                  </v-col>
-                  <v-col cols="12" md="6">
-                    <v-text-field
-                      v-model.number="arame2.area"
-                      type="number"
-                      label="Área Seção Transversal"
-                      prefix="A2 ="
-                      :rules="rules.areaRules"
-                      min="0"
-                      hint="Área da seção transversal do arame 2"
-                      suffix="mm²"
                     ></v-text-field>
                   </v-col>
                 </v-row>
@@ -229,13 +205,11 @@ export default {
       arame1: {
         elasticidade: null,
         sigma: null,
-        area: null,
         comprimento: null,
       },
       arame2: {
         elasticidade: null,
         sigma: null,
-        area: null,
         comprimento: null,
       },
       rules: {
@@ -251,6 +225,12 @@ export default {
     }
   },
   computed: {
+    areaArame1() {
+      return this.reacaoVB / this.arame1.sigma
+    },
+    areaArame2() {
+      return this.reacaoVD / this.arame2.sigma
+    },
     fR1() {
       return this.w * this.l3
     },
@@ -258,7 +238,13 @@ export default {
       return 2 * this.w * (this.l4 + this.l5)
     },
     reacaoVA() {
-      return this.data
+      return 0
+    },
+    reacaoVB() {
+      return 0
+    },
+    reacaoVD() {
+      return 0
     },
   },
   methods: {
@@ -301,6 +287,7 @@ export default {
       return this.arame1.sigma <= sigmaAco && this.arame2.sigma <= sigmaAco
     },
     calcularDeformacoesArames() {
+      this.$emit('calculating')
       this.$notifier.showSuccess({
         content: `R1= ${this.fR1}; R2= ${this.fR2}`,
       })
@@ -309,5 +296,3 @@ export default {
   },
 }
 </script>
-
-<style lang="scss" scoped></style>
