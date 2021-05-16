@@ -52,6 +52,11 @@ export default {
         deslocE,
         deslocF,
       }
+      this.$vuetify.goTo(0, {
+        duration: 1000,
+        offset: 0,
+        easing: 'easeInOutCubic',
+      })
       setTimeout(() => this.exibirRelatorio(), 2000)
     },
     exibirRelatorio() {
