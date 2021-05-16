@@ -41,10 +41,10 @@
                       prefix="E ="
                       min="0"
                       hint="Módulo de elasticidade do arame 1"
-                      suffix="MPa"
+                      suffix="GPa"
                     ></v-text-field>
                   </v-col>
-                  <v-col cols="12">
+                  <v-col cols="12" md="6">
                     <v-text-field
                       v-model.number="arame1.comprimento"
                       type="number"
@@ -54,6 +54,18 @@
                       min="0"
                       hint="comprimento do primeiro arame"
                       suffix="metros"
+                    ></v-text-field>
+                  </v-col>
+                  <v-col cols="12" md="6">
+                    <v-text-field
+                      v-model.number="arame1.area"
+                      type="number"
+                      :rules="rules.areaRules"
+                      label="Área da Seção Transversal"
+                      prefix="A1 ="
+                      min="0"
+                      hint="área da seção transversal do primeiro arame"
+                      suffix="mm²"
                     ></v-text-field>
                   </v-col>
                 </v-row>
@@ -81,10 +93,10 @@
                       prefix="E ="
                       min="0"
                       hint="Módulo de elasticidade do arame 2"
-                      suffix="MPa"
+                      suffix="GPa"
                     ></v-text-field>
                   </v-col>
-                  <v-col cols="12">
+                  <v-col cols="12" md="6">
                     <v-text-field
                       v-model.number="arame2.comprimento"
                       type="number"
@@ -94,6 +106,18 @@
                       min="0"
                       hint="comprimento do segundo arame"
                       suffix="metros"
+                    ></v-text-field>
+                  </v-col>
+                  <v-col cols="12" md="6">
+                    <v-text-field
+                      v-model.number="arame2.area"
+                      type="number"
+                      :rules="rules.areaRules"
+                      label="Área da Seção Transversal"
+                      prefix="A2 ="
+                      min="0"
+                      hint="área da seção transversal do segundo arame"
+                      suffix="mm²"
                     ></v-text-field>
                   </v-col>
                 </v-row>
@@ -206,11 +230,13 @@ export default {
         elasticidade: null,
         sigma: null,
         comprimento: null,
+        area: null,
       },
       arame2: {
         elasticidade: null,
         sigma: null,
         comprimento: null,
+        area: null,
       },
       rules: {
         comprimentoRules: [(v) => !!v || 'Comprimento é obrigatório'],
@@ -271,11 +297,21 @@ export default {
           l5: this.l5,
         },
         carregamentos: {
-          p: this.p,
-          w: this.w,
+          p: this.p * 1e3,
+          w: this.w * 1e3,
         },
-        arame1: this.arame1,
-        arame2: this.arame2,
+        arame1: {
+          elasticidade: this.arame1.elasticidade * 1e9,
+          sigma: this.arame1.sigma * 1e6,
+          comprimento: this.arame1.comprimento,
+          area: this.arame1.area * 1e-6,
+        },
+        arame2: {
+          elasticidade: this.arame2.elasticidade * 1e9,
+          sigma: this.arame2.sigma * 1e6,
+          comprimento: this.arame2.comprimento,
+          area: this.arame2.area * 1e-6,
+        },
       })
     },
   },
