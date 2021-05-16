@@ -46,7 +46,8 @@
             <v-icon>mdi-scale</v-icon>
           </v-list-item-icon>
           <v-list-item-subtitle class="text-left"
-            >Va = {{ calcularString('deformBC') }}</v-list-item-subtitle
+            >Ɛ<sub>BC</sub> =
+            {{ calcularString('deformBC') }}</v-list-item-subtitle
           >
         </v-list-item>
         <v-list-item>
@@ -54,7 +55,8 @@
             <v-icon>mdi-scale</v-icon>
           </v-list-item-icon>
           <v-list-item-subtitle class="text-left"
-            >Vb = {{ calcularString('deformDE') }}</v-list-item-subtitle
+            >Ɛ<sub>DE</sub> =
+            {{ calcularString('deformDE') }}</v-list-item-subtitle
           >
         </v-list-item>
       </div>
@@ -90,10 +92,17 @@
         </v-list-item>
       </div>
     </v-card-text>
+    <v-card-actions class="d-flex justify-center mb-2">
+      <v-btn color="success" outlined @click="gerarRelatorio">
+        Gerar Relatório
+        <v-icon right dark> mdi-file-chart </v-icon>
+      </v-btn>
+    </v-card-actions>
   </v-card>
 </template>
 
 <script>
+import { jsPDF } from 'jspdf'
 export default {
   props: {
     dados: {
@@ -153,6 +162,41 @@ export default {
     },
     roundValue(value) {
       return Math.round(value * 100) / 100
+    },
+    gerarRelatorio() {
+      // eslint-disable-next-line new-cap
+      const doc = new jsPDF('p', 'pt', 'A4')
+
+      doc.setFontSize(32)
+      doc.text(80, 60, 'Relatório - Análise Estrutural')
+
+      doc.setFontSize(22)
+      doc.text(20, 100, 'Reações de Apoio')
+      doc.setFontSize(12)
+      doc.text(20, 130, [
+        'Apoio VA: ' + this.calcularString('vA'),
+        'Apoio VB: ' + this.calcularString('vB'),
+        'Apoio VD: ' + this.calcularString('vD'),
+      ])
+
+      doc.setFontSize(22)
+      doc.text(20, 200, 'Deformações')
+      doc.setFontSize(12)
+      doc.text(20, 230, [
+        'Deformação Arame BC: ' + this.calcularString('deformBC'),
+        'Deformação Arame DE: ' + this.calcularString('deformDE'),
+      ])
+
+      doc.setFontSize(22)
+      doc.text(20, 290, 'Deslocamentos')
+      doc.setFontSize(12)
+      doc.text(20, 320, [
+        'Deslocamento C: ' + this.calcularString('deslocC'),
+        'Deslocamento E: ' + this.calcularString('deslocE'),
+        'Deslocamento F: ' + this.calcularString('deslocF'),
+      ])
+
+      doc.save('relatorio.pdf')
     },
   },
 }
