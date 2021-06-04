@@ -16,197 +16,13 @@
         </v-stepper-header>
         <v-stepper-items>
           <v-stepper-content step="1">
-            <v-form ref="form1" v-model="valid1" lazy-validation>
-              <v-container>
-                <h3>Arame 1</h3>
-                <v-row>
-                  <v-col cols="12" md="6">
-                    <v-text-field
-                      v-model.number="arame1.sigma"
-                      type="number"
-                      label="Limite de Escoamento"
-                      prefix="σ ="
-                      :rules="rules.sigmaRules"
-                      min="0"
-                      hint="Limite de escoamento do arame 1"
-                      suffix="MPa"
-                    ></v-text-field>
-                  </v-col>
-                  <v-col cols="12" md="6">
-                    <v-text-field
-                      v-model.number="arame1.elasticidade"
-                      type="number"
-                      :rules="rules.elasticidadeRules"
-                      label="Módulo de Elasticidade"
-                      prefix="E ="
-                      min="0"
-                      hint="Módulo de elasticidade do arame 1"
-                      suffix="GPa"
-                    ></v-text-field>
-                  </v-col>
-                  <v-col cols="12" md="6">
-                    <v-text-field
-                      v-model.number="arame1.comprimento"
-                      type="number"
-                      :rules="rules.comprimentoRules"
-                      label="Comprimento"
-                      prefix="L1 ="
-                      min="0"
-                      hint="comprimento do primeiro arame"
-                      suffix="metros"
-                    ></v-text-field>
-                  </v-col>
-                  <v-col cols="12" md="6">
-                    <v-text-field
-                      v-model.number="arame1.area"
-                      type="number"
-                      :rules="rules.areaRules"
-                      label="Área da Seção Transversal"
-                      prefix="A1 ="
-                      min="0"
-                      hint="área da seção transversal do primeiro arame"
-                      suffix="mm²"
-                    ></v-text-field>
-                  </v-col>
-                </v-row>
-                <br />
-                <h3>Arame 2</h3>
-                <v-row>
-                  <v-col cols="12" md="6">
-                    <v-text-field
-                      v-model.number="arame2.sigma"
-                      type="number"
-                      label="Limite de Escoamento"
-                      prefix="σ ="
-                      :rules="rules.sigmaRules"
-                      min="0"
-                      hint="Limite de escoamento do arame 2"
-                      suffix="MPa"
-                    ></v-text-field>
-                  </v-col>
-                  <v-col cols="12" md="6">
-                    <v-text-field
-                      v-model.number="arame2.elasticidade"
-                      type="number"
-                      :rules="rules.elasticidadeRules"
-                      label="Módulo de Elasticidade"
-                      prefix="E ="
-                      min="0"
-                      hint="Módulo de elasticidade do arame 2"
-                      suffix="GPa"
-                    ></v-text-field>
-                  </v-col>
-                  <v-col cols="12" md="6">
-                    <v-text-field
-                      v-model.number="arame2.comprimento"
-                      type="number"
-                      label="Comprimento"
-                      prefix="L2 ="
-                      :rules="rules.comprimentoRules"
-                      min="0"
-                      hint="comprimento do segundo arame"
-                      suffix="metros"
-                    ></v-text-field>
-                  </v-col>
-                  <v-col cols="12" md="6">
-                    <v-text-field
-                      v-model.number="arame2.area"
-                      type="number"
-                      :rules="rules.areaRules"
-                      label="Área da Seção Transversal"
-                      prefix="A2 ="
-                      min="0"
-                      hint="área da seção transversal do segundo arame"
-                      suffix="mm²"
-                    ></v-text-field>
-                  </v-col>
-                </v-row>
-              </v-container>
-            </v-form>
-            <div class="d-flex justify-end">
-              <v-btn color="success" outlined @click="validaForm1">
-                Próximo Passo
-                <v-icon right dark> mdi-arrow-right </v-icon>
-              </v-btn>
-            </div>
+            <arame-form-step @step-completed="completeArameForm" />
           </v-stepper-content>
           <v-stepper-content step="2">
-            <v-form ref="form2" v-model="valid2" lazy-validation>
-              <v-container>
-                <h3>Carregamentos</h3>
-                <v-row>
-                  <v-col cols="12" md="6">
-                    <v-text-field
-                      v-model.number="w"
-                      type="number"
-                      label="w"
-                      min="0"
-                      :rules="rules.wRules"
-                      hint="Valor da carga distribuída"
-                      suffix="KN/m"
-                    ></v-text-field>
-                  </v-col>
-                  <v-col cols="12" md="6">
-                    <v-text-field
-                      v-model.number="p"
-                      type="number"
-                      label="P"
-                      :rules="rules.pRules"
-                      min="0"
-                      hint="Valor da força pontual P"
-                      suffix="KN"
-                    ></v-text-field>
-                  </v-col>
-                </v-row>
-                <br />
-                <h3>Dimensões</h3>
-                <v-row>
-                  <v-col cols="12" md="4">
-                    <v-text-field
-                      v-model.number="l3"
-                      type="number"
-                      label="L3"
-                      :rules="rules.comprimentoRules"
-                      min="0"
-                      hint="comprimento L3"
-                      suffix="metros"
-                    ></v-text-field>
-                  </v-col>
-                  <v-col cols="12" md="4">
-                    <v-text-field
-                      v-model.number="l4"
-                      type="number"
-                      label="L4"
-                      :rules="rules.comprimentoRules"
-                      min="0"
-                      hint="comprimento L4"
-                      suffix="metros"
-                    ></v-text-field>
-                  </v-col>
-                  <v-col cols="12" md="4">
-                    <v-text-field
-                      v-model.number="l5"
-                      type="number"
-                      label="L5"
-                      :rules="rules.comprimentoRules"
-                      min="0"
-                      hint="comprimento L5"
-                      suffix="metros"
-                    ></v-text-field>
-                  </v-col>
-                </v-row>
-              </v-container>
-            </v-form>
-            <div class="d-flex justify-end">
-              <v-btn color="success" class="mr-3" text @click="stepper = 1">
-                <v-icon left dark> mdi-arrow-left </v-icon>
-                Passo Anterior
-              </v-btn>
-              <v-btn color="success" outlined @click="calcular">
-                Calcular
-                <v-icon right dark> mdi-calculator </v-icon>
-              </v-btn>
-            </div>
+            <estrutura-form-step
+              @step-completed="calcular"
+              @step-back="stepper = 1"
+            />
           </v-stepper-content>
         </v-stepper-items>
       </v-stepper>
@@ -219,86 +35,26 @@ export default {
   data() {
     return {
       stepper: 1,
-      valid1: false,
-      valid2: false,
-      l3: null,
-      l4: null,
-      l5: null,
-      w: null,
-      p: null,
-      arame1: {
-        elasticidade: null,
-        sigma: null,
-        comprimento: null,
-        area: null,
-      },
-      arame2: {
-        elasticidade: null,
-        sigma: null,
-        comprimento: null,
-        area: null,
-      },
-      rules: {
-        comprimentoRules: [(v) => !!v || 'Comprimento é obrigatório'],
-        wRules: [(v) => !!v || 'w é obrigatório'],
-        pRules: [(v) => !!v || 'P é obrigatório'],
-        elasticidadeRules: [
-          (v) => !!v || 'Módulo de elasticidade é obrigatório',
-        ],
-        sigmaRules: [(v) => !!v || 'Limite de escoamento é obrigatório'],
-        areaRules: [(v) => !!v || 'Área é obrigatória'],
-      },
+      arame1: {},
+      arame2: {},
     }
   },
   methods: {
-    validaForm1() {
-      if (this.$refs.form1.validate()) {
-        if (this.validarLimiteEscoamentoArames()) {
-          this.stepper++
-        }
-      } else {
-        this.$notifier.showError({
-          content: 'Preencha corretamente os dados dos arames antes de avançar',
-        })
-      }
+    completeArameForm({ arame1, arame2 }) {
+      this.stepper++
+      this.arame1 = { ...arame1 }
+      this.arame2 = { ...arame2 }
     },
-    calcular() {
-      if (this.$refs.form2.validate()) {
-        this.emitirCalcular()
-      } else {
-        this.$notifier.showError({
-          content:
-            'Preencha corretamente os dados da estrutura antes de calcular',
-        })
-      }
-    },
-    validarLimiteEscoamentoArames() {
-      const sigmaAco = 350
-      if (this.arame1.sigma > sigmaAco && this.arame2.sigma > sigmaAco) {
-        this.$notifier.showError({
-          content: 'Ambos os arames ultrapassam o limite de escoamento do aço.',
-        })
-      } else if (this.arame1.sigma > sigmaAco) {
-        this.$notifier.showError({
-          content: 'O arame 1 ultrapassa o limite de escoamento do aço.',
-        })
-      } else if (this.arame2.sigma > sigmaAco) {
-        this.$notifier.showError({
-          content: 'O arame 2 ultrapassa o limite de escoamento do aço.',
-        })
-      }
-      return this.arame1.sigma <= sigmaAco && this.arame2.sigma <= sigmaAco
-    },
-    emitirCalcular() {
+    calcular({ l3, l4, l5, p, w }) {
       this.$emit('calcular', {
         dimensoes: {
-          l3: this.l3,
-          l4: this.l4,
-          l5: this.l5,
+          l3,
+          l4,
+          l5,
         },
         carregamentos: {
-          p: this.p * 1e3,
-          w: this.w * 1e3,
+          p: p * 1e3,
+          w: w * 1e3,
         },
         arame1: {
           elasticidade: this.arame1.elasticidade * 1e9,
