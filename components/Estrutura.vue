@@ -100,7 +100,7 @@
         </g>
         <text
           id="svg_35"
-          x="299.5"
+          :x="broken1 ? '255' : '299.5'"
           y="170.5"
           font-size="24"
           stroke-width="0"
@@ -110,7 +110,7 @@
           font-weight="bold"
           font-style="normal"
         >
-          L1
+          {{ broken1 ? 'Broken' : 'L1' }}
         </text>
       </g>
       <g id="arame2" stroke="#FFF093" fill="#FFF093">
@@ -183,7 +183,7 @@
         <text
           id="svg_37"
           stroke-width="0"
-          x="503.5"
+          :x="broken2 ? '455' : '503.5'"
           y="170.5"
           font-size="24"
           font-family="monospace"
@@ -192,7 +192,7 @@
           font-weight="bold"
           font-style="normal"
         >
-          L2
+          {{ broken2 ? 'Broken' : 'L2' }}
         </text>
       </g>
 
@@ -402,10 +402,22 @@ export default {
       type: Boolean,
       default: false,
     },
+    broken1: {
+      type: Boolean,
+      default: false,
+    },
+    broken2: {
+      type: Boolean,
+      default: false,
+    },
   },
   computed: {
     estruturaClass() {
-      return this.calculating ? 'estrutura calculating' : 'estrutura'
+      let classe = 'estrutura'
+      classe += this.calculating ? ' calculating' : ''
+      classe += this.broken1 ? ' broken1' : ''
+      classe += this.broken2 ? ' broken2' : ''
+      return classe
     },
   },
 }
@@ -425,6 +437,25 @@ export default {
   #arame2,
   #barra {
     animation: calculating1 1s linear alternate infinite;
+  }
+}
+
+.broken1 {
+  #arame1 {
+    animation: disappear 2s forwards;
+  }
+}
+
+.broken2 {
+  #arame2 {
+    animation: disappear 2s forwards;
+  }
+}
+
+@keyframes disappear {
+  to {
+    fill: red;
+    stroke: red;
   }
 }
 

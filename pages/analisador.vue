@@ -2,7 +2,11 @@
   <v-row justify="center" align="center">
     <v-col cols="12" md="10">
       <div class="text-center">
-        <Estrutura :calculating="calculating" />
+        <Estrutura
+          :calculating="calculating"
+          :broken1="broken1"
+          :broken2="broken2"
+        />
         <FormDados @calcular="onCalcular" />
         <v-overlay :value="overlay">
           <Relatorio :dados="dados" @close="overlay = false" />
@@ -16,6 +20,8 @@
 export default {
   data() {
     return {
+      broken1: false,
+      broken2: false,
       calculating: false,
       overlay: false,
       dados: null,
@@ -24,6 +30,12 @@ export default {
   methods: {
     onCalcular({ carregamentos, dimensoes, arame1, arame2 }) {
       this.calculating = true
+      this.broken1 = false
+      this.broken2 = false
+      const { deformMaxBC, deformMaxDE } = this.calcularDeformacoesMaximas(
+        arame1,
+        arame2
+      )
       const { fR1, fR2 } = this.calcularResultantes(carregamentos, dimensoes)
       const { vA, vB, vD } = this.calcularApoios(
         carregamentos,
@@ -33,15 +45,56 @@ export default {
         fR1,
         fR2
       )
+      const deslocC = this.calcularDeslocamento(vB, arame1)
+      const deslocE = this.calcularDeslocamento(vD, arame2)
+      const deslocF = this.calcularDeslocamentoF(deslocC, dimensoes)
       const { deformBC, deformDE } = this.calcularDeformacoes(
         arame1,
         arame2,
         vB,
         vD
       )
-      const deslocC = this.calcularDeslocamentoC(vB, arame1)
-      const deslocE = this.calcularDeslocamentoE(vD, arame2)
-      const deslocF = this.calcularDeslocamentoF(deslocC, dimensoes)
+      if (deformBC > deformMaxBC) {
+        if (deformDE > deformMaxDE) {
+          this.$vuetify.goTo(0, {
+            duration: 1000,
+            offset: 0,
+            easing: 'easeInOutCubic',
+          })
+          setTimeout(() => {
+            this.$notifier.showError({
+              content:
+                'Os dois arames ultrapassaram as deformações máximas suportadas dado o carregamento.',
+            })
+            this.broken1 = true
+            this.broken2 = true
+            this.calculating = false
+          }, 2000)
+          return
+        } else {
+          setTimeout(() => {
+            this.$notifier.showError({
+              content:
+                'O arame 1 ultrapassou a deformação máxima suportada dado o carregamento.',
+            })
+            this.broken1 = true
+            this.broken2 = false
+            this.calculating = false
+          }, 2000)
+          return
+        }
+      } else if (deformDE > deformMaxDE) {
+        setTimeout(() => {
+          this.$notifier.showError({
+            content:
+              'O arame 2 ultrapassou a deformação máxima suportada dado o carregamento.',
+          })
+          this.broken1 = false
+          this.broken2 = true
+          this.calculating = false
+        }, 2000)
+        return
+      }
       this.dados = {
         vA,
         vB,
@@ -60,6 +113,8 @@ export default {
       setTimeout(() => this.exibirRelatorio(), 2000)
     },
     exibirRelatorio() {
+      this.broken1 = false
+      this.broken2 = false
       this.calculating = false
       this.overlay = true
     },
@@ -80,29 +135,26 @@ export default {
         l3 * fR1 + (2 * l3 + l4 + l5) * fR2 + 2 * (l3 + l4) * p
       const vBNumerador = vBPrimeiraParcela * l2 * l3 * e1 * a1
       const vBDenominador =
-        2 *
-        (l2 * (l3 ^ 2) + l1 * (l3 ^ 2) + 2 * l1 * l3 * l4 + l1 * (l4 ^ 2)) *
-        e2 *
-        a2
+        2 * (l2 * (l3 ^ 2) * e1 * a1 + ((l3 + l4) ^ 2) * l1 * e2 * a2)
       const vB = vBNumerador / vBDenominador
       const vD = ((l1 * (l3 + l4)) / (l2 * l3)) * ((e2 * a2) / (e1 * a1)) * vB
       const vA = fR1 + fR2 + p - vB - vD
       return { vA, vB, vD }
     },
+    calcularDeformacoesMaximas(arame1, arame2) {
+      const deformMaxBC = arame1.sigma / arame1.elasticidade
+      const deformMaxDE = arame2.sigma / arame2.elasticidade
+      return { deformMaxBC, deformMaxDE }
+    },
     calcularDeformacoes(arame1, arame2, vB, vD) {
-      const deslocBC =
-        (vB * arame1.comprimento) / (arame1.elasticidade * arame1.area)
-      const deslocDE =
-        (vD * arame2.comprimento) / (arame2.elasticidade * arame2.area)
+      const deslocBC = this.calcularDeslocamento(vB, arame1)
+      const deslocDE = this.calcularDeslocamento(vD, arame2)
       const deformBC = deslocBC / arame1.comprimento
       const deformDE = deslocDE / arame2.comprimento
       return { deformBC, deformDE }
     },
-    calcularDeslocamentoC(vB, arame1) {
-      return (vB * arame1.comprimento) / (arame1.elasticidade * arame1.area)
-    },
-    calcularDeslocamentoE(vD, arame2) {
-      return (vD * arame2.comprimento) / (arame2.elasticidade * arame2.area)
+    calcularDeslocamento(v, arame) {
+      return (v * arame.comprimento) / (arame.elasticidade * arame.area)
     },
     calcularDeslocamentoF(deslocC, { l3, l4, l5 }) {
       return (deslocC * (l3 + l4 + l5)) / l3
