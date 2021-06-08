@@ -253,6 +253,8 @@ export default {
         this.$emit('step-completed', {
           arame1: this.arame1,
           arame2: this.arame2,
+          material1: this.selectedMaterial1,
+          material2: this.selectedMaterial2,
         })
       } else {
         this.$notifier.showError({

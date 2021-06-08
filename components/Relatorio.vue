@@ -113,6 +113,27 @@ export default {
   data() {
     return {
       unidadeMedida: {
+        arame1: {
+          comprimento: 'm',
+          area: 'm²',
+          elasticidade: 'Pa',
+          sigma: 'Pa',
+        },
+        arame2: {
+          comprimento: 'm',
+          area: 'm²',
+          elasticidade: 'Pa',
+          sigma: 'Pa',
+        },
+        carregamentos: {
+          p: 'N',
+          w: 'N.m',
+        },
+        dimensoes: {
+          l3: 'm',
+          l4: 'm',
+          l5: 'm',
+        },
         vA: 'N',
         vB: 'N',
         vD: 'N',
@@ -128,36 +149,72 @@ export default {
     onClickOutside() {
       this.$emit('close')
     },
-    calcularString(valor) {
-      const valorCheio = this.dados[valor]
+    calcularString(valor, valor2, quadrado = false) {
+      const valorCheio = valor2 ? this.dados[valor][valor2] : this.dados[valor]
       if (Math.abs(valorCheio) >= 0.8e9) {
         return (
-          this.roundValue(valorCheio / 1e9) + ' G' + this.unidadeMedida[valor]
+          this.roundValue(valorCheio / 1e9) +
+          ' G' +
+          (valor2
+            ? this.unidadeMedida[valor][valor2]
+            : this.unidadeMedida[valor])
         )
       } else if (Math.abs(valorCheio) >= 0.8e6) {
         return (
-          this.roundValue(valorCheio / 1e6) + ' M' + this.unidadeMedida[valor]
+          this.roundValue(valorCheio / 1e6) +
+          ' M' +
+          (valor2
+            ? this.unidadeMedida[valor][valor2]
+            : this.unidadeMedida[valor])
         )
       } else if (Math.abs(valorCheio) >= 0.8e3) {
         return (
-          this.roundValue(valorCheio / 1e3) + ' K' + this.unidadeMedida[valor]
+          this.roundValue(valorCheio / 1e3) +
+          ' K' +
+          (valor2
+            ? this.unidadeMedida[valor][valor2]
+            : this.unidadeMedida[valor])
         )
       } else if (Math.abs(valorCheio) >= 0.8) {
-        return this.roundValue(valorCheio) + ' ' + this.unidadeMedida[valor]
+        return (
+          this.roundValue(valorCheio) +
+          ' ' +
+          (valor2
+            ? this.unidadeMedida[valor][valor2]
+            : this.unidadeMedida[valor])
+        )
       } else if (Math.abs(valorCheio) >= 0.8e-3) {
         return (
-          this.roundValue(valorCheio / 1e-3) + ' m' + this.unidadeMedida[valor]
+          this.roundValue(valorCheio / 1e-3) +
+          (quadrado ? ' cm' : ' m') +
+          (valor2
+            ? this.unidadeMedida[valor][valor2]
+            : this.unidadeMedida[valor])
         )
       } else if (Math.abs(valorCheio) >= 0.8e-6) {
         return (
-          this.roundValue(valorCheio / 1e-6) + ' µ' + this.unidadeMedida[valor]
+          this.roundValue(valorCheio / 1e-6) +
+          (quadrado ? ' m' : ' µ') +
+          (valor2
+            ? this.unidadeMedida[valor][valor2]
+            : this.unidadeMedida[valor])
         )
       } else if (Math.abs(valorCheio) >= 0.8e-9) {
         return (
-          this.roundValue(valorCheio / 1e-9) + ' n' + this.unidadeMedida[valor]
+          this.roundValue(valorCheio / 1e-9) +
+          ' n' +
+          (valor2
+            ? this.unidadeMedida[valor][valor2]
+            : this.unidadeMedida[valor])
         )
       } else {
-        return this.roundValue(valorCheio) + ' ' + this.unidadeMedida[valor]
+        return (
+          this.roundValue(valorCheio) +
+          ' ' +
+          (valor2
+            ? this.unidadeMedida[valor][valor2]
+            : this.unidadeMedida[valor])
+        )
       }
     },
     roundValue(value) {
@@ -165,32 +222,95 @@ export default {
     },
     gerarRelatorio() {
       // eslint-disable-next-line new-cap
-      const doc = new jsPDF('p', 'pt', 'A4')
+      const doc = new jsPDF()
 
+      // CABEÇALHO
       doc.setFontSize(32)
-      doc.text(80, 60, 'Relatório - Análise Estrutural')
+      const width = doc.internal.pageSize.getWidth()
+      doc.text('Relatório', width / 2, 20, {
+        align: 'center',
+      })
+      doc.text('Análise Estrutural', width / 2, 36, {
+        align: 'center',
+      })
 
+      // DADOS DE ENTRADA
       doc.setFontSize(22)
-      doc.text(20, 100, 'Reações de Apoio')
+      doc.text(5, 60, 'Dados de Entrada')
+      // ARAME 1
+      doc.setFontSize(16)
+      doc.text(15, 80, 'Arame 1:')
       doc.setFontSize(12)
-      doc.text(20, 130, [
+      doc.text(15, 88, [
+        'Material: ' + this.dados.material1.nome,
+        'Limite de Escoamento: ' + this.calcularString('arame1', 'sigma'),
+        'Módulo de Elasticidade: ' +
+          this.calcularString('arame1', 'elasticidade'),
+        'Comprimento: ' + this.calcularString('arame1', 'comprimento'),
+        'Área da Seção Transversal: ' +
+          this.calcularString('arame1', 'area', true),
+      ])
+      // ARAME 2
+      doc.setFontSize(16)
+      doc.text(width / 2 + 5, 80, 'Arame 2:')
+      doc.setFontSize(12)
+      doc.text(width / 2 + 5, 88, [
+        'Material: ' + this.dados.material2.nome,
+        'Limite de Escoamento: ' + this.calcularString('arame2', 'sigma'),
+        'Módulo de Elasticidade: ' +
+          this.calcularString('arame2', 'elasticidade'),
+        'Comprimento: ' + this.calcularString('arame2', 'comprimento'),
+        'Área da Seção Transversal: ' +
+          this.calcularString('arame2', 'area', true),
+      ])
+      // DIMENSÕES
+      doc.setFontSize(16)
+      doc.text(15, 122, 'Dimensões:')
+      doc.setFontSize(12)
+      doc.text(15, 130, [
+        'Comprimento L3: ' + this.calcularString('dimensoes', 'l3'),
+        'Comprimento L4: ' + this.calcularString('dimensoes', 'l4'),
+        'Comprimento L5: ' + this.calcularString('dimensoes', 'l5'),
+      ])
+      // CARREGAMENTOS
+      doc.setFontSize(16)
+      doc.text(width / 2 + 5, 122, 'Carregamentos:')
+      doc.setFontSize(12)
+      doc.text(width / 2 + 5, 130, [
+        'Força P: ' + this.calcularString('carregamentos', 'p'),
+        'Força Distribuída W: ' + this.calcularString('carregamentos', 'w'),
+        'Fator de Segurança: ' + this.dados.fs,
+      ])
+      doc.line(5, 145, width - 5, 145)
+
+      // DADOS DE SAÍDA
+      doc.setFontSize(22)
+      doc.text(5, 160, 'Dados de Saída')
+
+      // REAÇÕES DE APOIO
+      doc.setFontSize(16)
+      doc.text(15, 180, 'Reações de Apoio')
+      doc.setFontSize(12)
+      doc.text(15, 188, [
         'Apoio VA: ' + this.calcularString('vA'),
         'Apoio VB: ' + this.calcularString('vB'),
         'Apoio VD: ' + this.calcularString('vD'),
       ])
 
-      doc.setFontSize(22)
-      doc.text(20, 200, 'Deformações')
+      // DEFORMAÇÕES
+      doc.setFontSize(16)
+      doc.text(width / 3, 180, 'Deformações')
       doc.setFontSize(12)
-      doc.text(20, 230, [
+      doc.text(width / 3, 188, [
         'Deformação Arame BC: ' + this.calcularString('deformBC'),
         'Deformação Arame DE: ' + this.calcularString('deformDE'),
       ])
 
-      doc.setFontSize(22)
-      doc.text(20, 290, 'Deslocamentos')
+      // DESLOCAMENTOS
+      doc.setFontSize(16)
+      doc.text((width * 2) / 3, 180, 'Deslocamentos')
       doc.setFontSize(12)
-      doc.text(20, 320, [
+      doc.text((width * 2) / 3, 188, [
         'Deslocamento C: ' + this.calcularString('deslocC'),
         'Deslocamento E: ' + this.calcularString('deslocE'),
         'Deslocamento F: ' + this.calcularString('deslocF'),

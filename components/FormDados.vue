@@ -37,15 +37,19 @@ export default {
       stepper: 1,
       arame1: {},
       arame2: {},
+      material1: {},
+      material2: {},
     }
   },
   methods: {
-    completeArameForm({ arame1, arame2 }) {
+    completeArameForm({ arame1, arame2, material1, material2 }) {
       this.stepper++
       this.arame1 = { ...arame1 }
       this.arame2 = { ...arame2 }
+      this.material1 = { ...material1 }
+      this.material2 = { ...material2 }
     },
-    calcular({ l3, l4, l5, p, w }) {
+    calcular({ l3, l4, l5, p, w, fs }) {
       this.$emit('calcular', {
         dimensoes: {
           l3,
@@ -68,6 +72,9 @@ export default {
           comprimento: this.arame2.comprimento,
           area: this.arame2.area * 1e-6,
         },
+        material1: this.material1,
+        material2: this.material2,
+        fs,
       })
     },
   },

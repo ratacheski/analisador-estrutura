@@ -110,7 +110,7 @@
           font-weight="bold"
           font-style="normal"
         >
-          {{ broken1 ? 'Broken' : 'L1' }}
+          {{ broken1 ? broken1 + ' m' : 'L1' }}
         </text>
       </g>
       <g id="arame2" stroke="#FFF093" fill="#FFF093">
@@ -192,7 +192,7 @@
           font-weight="bold"
           font-style="normal"
         >
-          {{ broken2 ? 'Broken' : 'L2' }}
+          {{ broken2 ? broken2 + ' m' : 'L2' }}
         </text>
       </g>
 
@@ -403,12 +403,12 @@ export default {
       default: false,
     },
     broken1: {
-      type: Boolean,
-      default: false,
+      type: Number,
+      default: 0,
     },
     broken2: {
-      type: Boolean,
-      default: false,
+      type: Number,
+      default: 0,
     },
   },
   computed: {

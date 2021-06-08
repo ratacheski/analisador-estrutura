@@ -20,21 +20,30 @@
 export default {
   data() {
     return {
-      broken1: false,
-      broken2: false,
+      broken1: 0,
+      broken2: 0,
       calculating: false,
       overlay: false,
       dados: null,
     }
   },
   methods: {
-    onCalcular({ carregamentos, dimensoes, arame1, arame2 }) {
+    onCalcular({
+      carregamentos,
+      dimensoes,
+      arame1,
+      arame2,
+      material1,
+      material2,
+      fs,
+    }) {
       this.calculating = true
-      this.broken1 = false
-      this.broken2 = false
+      this.broken1 = 0
+      this.broken2 = 0
       const { deformMaxBC, deformMaxDE } = this.calcularDeformacoesMaximas(
         arame1,
-        arame2
+        arame2,
+        fs
       )
       const { fR1, fR2 } = this.calcularResultantes(carregamentos, dimensoes)
       const { vA, vB, vD } = this.calcularApoios(
@@ -66,8 +75,10 @@ export default {
               content:
                 'Os dois arames ultrapassaram as deformações máximas suportadas dado o carregamento.',
             })
-            this.broken1 = true
-            this.broken2 = true
+            this.broken1 =
+              Math.round((arame1.comprimento + deformBC) * 100) / 100
+            this.broken2 =
+              Math.round((arame2.comprimento + deformDE) * 100) / 100
             this.calculating = false
           }, 2000)
           return
@@ -77,8 +88,9 @@ export default {
               content:
                 'O arame 1 ultrapassou a deformação máxima suportada dado o carregamento.',
             })
-            this.broken1 = true
-            this.broken2 = false
+            this.broken1 =
+              Math.round((arame1.comprimento + deformBC) * 100) / 100
+            this.broken2 = 0
             this.calculating = false
           }, 2000)
           return
@@ -89,8 +101,8 @@ export default {
             content:
               'O arame 2 ultrapassou a deformação máxima suportada dado o carregamento.',
           })
-          this.broken1 = false
-          this.broken2 = true
+          this.broken1 = 0
+          this.broken2 = Math.round((arame2.comprimento + deformDE) * 100) / 100
           this.calculating = false
         }, 2000)
         return
@@ -104,6 +116,13 @@ export default {
         deslocC,
         deslocE,
         deslocF,
+        arame1,
+        arame2,
+        material1,
+        material2,
+        carregamentos,
+        dimensoes,
+        fs,
       }
       this.$vuetify.goTo(0, {
         duration: 1000,
@@ -113,8 +132,8 @@ export default {
       setTimeout(() => this.exibirRelatorio(), 2000)
     },
     exibirRelatorio() {
-      this.broken1 = false
-      this.broken2 = false
+      this.broken1 = 0
+      this.broken2 = 0
       this.calculating = false
       this.overlay = true
     },
@@ -141,9 +160,9 @@ export default {
       const vA = fR1 + fR2 + p - vB - vD
       return { vA, vB, vD }
     },
-    calcularDeformacoesMaximas(arame1, arame2) {
-      const deformMaxBC = arame1.sigma / arame1.elasticidade
-      const deformMaxDE = arame2.sigma / arame2.elasticidade
+    calcularDeformacoesMaximas(arame1, arame2, fs) {
+      const deformMaxBC = arame1.sigma / arame1.elasticidade / fs
+      const deformMaxDE = arame2.sigma / arame2.elasticidade / fs
       return { deformMaxBC, deformMaxDE }
     },
     calcularDeformacoes(arame1, arame2, vB, vD) {

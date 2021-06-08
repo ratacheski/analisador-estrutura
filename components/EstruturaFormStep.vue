@@ -62,6 +62,17 @@
             suffix="metros"
           ></v-text-field>
         </v-col>
+        <v-col cols="12">
+          <v-slider
+            v-model.number="fs"
+            label="Fator de Segurança"
+            :rules="rules.fsRules"
+            min="1"
+            max="5"
+            step="0.1"
+            thumb-label
+          ></v-slider>
+        </v-col>
       </v-row>
     </v-container>
     <div class="d-flex justify-end">
@@ -87,6 +98,7 @@ export default {
       l5: null,
       w: null,
       p: null,
+      fs: null,
       rules: {
         comprimentoRules: [
           (v) => !!v || 'Comprimento é obrigatório',
@@ -100,6 +112,10 @@ export default {
           (v) => !!v || 'P é obrigatório',
           (v) => v > 0 || 'P deve ser positivo',
         ],
+        fsRules: [
+          (v) => !!v || 'Fator de Segurança é obrigatório',
+          (v) => (v >= 1 && v <= 5) || 'FS deve ser um valor entre 1 e 5',
+        ],
       },
     }
   },
@@ -112,6 +128,7 @@ export default {
           l5: this.l5,
           p: this.p,
           w: this.w,
+          fs: this.fs,
         })
       } else {
         this.$notifier.showError({
