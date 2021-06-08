@@ -221,6 +221,8 @@ export default {
       return Math.round(value * 100) / 100
     },
     gerarRelatorio() {
+      const image = document.createElement('img')
+      image.setAttribute('src', '/estrutura.jpeg')
       // eslint-disable-next-line new-cap
       const doc = new jsPDF()
 
@@ -234,14 +236,16 @@ export default {
         align: 'center',
       })
 
+      doc.addImage(image, 'JPEG', 25, 50, 150, 100)
+
       // DADOS DE ENTRADA
       doc.setFontSize(22)
-      doc.text(5, 60, 'Dados de Entrada')
+      doc.text(5, 160, 'Dados de Entrada')
       // ARAME 1
       doc.setFontSize(16)
-      doc.text(15, 80, 'Arame 1:')
+      doc.text(15, 170, 'Arame 1:')
       doc.setFontSize(12)
-      doc.text(15, 88, [
+      doc.text(15, 178, [
         'Material: ' + this.dados.material1.nome,
         'Limite de Escoamento: ' + this.calcularString('arame1', 'sigma'),
         'Módulo de Elasticidade: ' +
@@ -252,9 +256,9 @@ export default {
       ])
       // ARAME 2
       doc.setFontSize(16)
-      doc.text(width / 2 + 5, 80, 'Arame 2:')
+      doc.text(width / 2 + 5, 170, 'Arame 2:')
       doc.setFontSize(12)
-      doc.text(width / 2 + 5, 88, [
+      doc.text(width / 2 + 5, 178, [
         'Material: ' + this.dados.material2.nome,
         'Limite de Escoamento: ' + this.calcularString('arame2', 'sigma'),
         'Módulo de Elasticidade: ' +
@@ -265,33 +269,32 @@ export default {
       ])
       // DIMENSÕES
       doc.setFontSize(16)
-      doc.text(15, 122, 'Dimensões:')
+      doc.text(15, 212, 'Dimensões:')
       doc.setFontSize(12)
-      doc.text(15, 130, [
+      doc.text(15, 220, [
         'Comprimento L3: ' + this.calcularString('dimensoes', 'l3'),
         'Comprimento L4: ' + this.calcularString('dimensoes', 'l4'),
         'Comprimento L5: ' + this.calcularString('dimensoes', 'l5'),
       ])
       // CARREGAMENTOS
       doc.setFontSize(16)
-      doc.text(width / 2 + 5, 122, 'Carregamentos:')
+      doc.text(width / 2 + 5, 212, 'Carregamentos:')
       doc.setFontSize(12)
-      doc.text(width / 2 + 5, 130, [
+      doc.text(width / 2 + 5, 220, [
         'Força P: ' + this.calcularString('carregamentos', 'p'),
         'Força Distribuída W: ' + this.calcularString('carregamentos', 'w'),
         'Fator de Segurança: ' + this.dados.fs,
       ])
-      doc.line(5, 145, width - 5, 145)
 
       // DADOS DE SAÍDA
       doc.setFontSize(22)
-      doc.text(5, 160, 'Dados de Saída')
+      doc.text(5, 245, 'Dados de Saída')
 
       // REAÇÕES DE APOIO
       doc.setFontSize(16)
-      doc.text(15, 180, 'Reações de Apoio')
+      doc.text(15, 260, 'Reações de Apoio')
       doc.setFontSize(12)
-      doc.text(15, 188, [
+      doc.text(15, 268, [
         'Apoio VA: ' + this.calcularString('vA'),
         'Apoio VB: ' + this.calcularString('vB'),
         'Apoio VD: ' + this.calcularString('vD'),
@@ -299,18 +302,18 @@ export default {
 
       // DEFORMAÇÕES
       doc.setFontSize(16)
-      doc.text(width / 3, 180, 'Deformações')
+      doc.text(width / 3, 260, 'Deformações')
       doc.setFontSize(12)
-      doc.text(width / 3, 188, [
+      doc.text(width / 3, 268, [
         'Deformação Arame BC: ' + this.calcularString('deformBC'),
         'Deformação Arame DE: ' + this.calcularString('deformDE'),
       ])
 
       // DESLOCAMENTOS
       doc.setFontSize(16)
-      doc.text((width * 2) / 3, 180, 'Deslocamentos')
+      doc.text((width * 2) / 3, 260, 'Deslocamentos')
       doc.setFontSize(12)
-      doc.text((width * 2) / 3, 188, [
+      doc.text((width * 2) / 3, 268, [
         'Deslocamento C: ' + this.calcularString('deslocC'),
         'Deslocamento E: ' + this.calcularString('deslocE'),
         'Deslocamento F: ' + this.calcularString('deslocF'),
