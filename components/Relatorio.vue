@@ -127,7 +127,7 @@ export default {
         },
         carregamentos: {
           p: 'N',
-          w: 'N.m',
+          w: 'N/m',
         },
         dimensoes: {
           l3: 'm',
