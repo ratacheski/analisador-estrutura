@@ -222,7 +222,7 @@ export default {
     },
     gerarRelatorio() {
       const image = document.createElement('img')
-      image.setAttribute('src', '/estrutura.jpeg')
+      image.setAttribute('src', '/analisador-estrutura/estrutura.jpeg')
       // eslint-disable-next-line new-cap
       const doc = new jsPDF()
 
