@@ -22,7 +22,7 @@ export default {
   },
 
   router: {
-    base: '/analisador-estrutura/',
+    base: '/',
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
