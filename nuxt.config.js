@@ -22,7 +22,7 @@ export default {
   },
 
   router: {
-    base: '/',
+    base: '/'
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
